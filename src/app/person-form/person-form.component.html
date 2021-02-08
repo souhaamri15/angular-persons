@@ -1,0 +1,35 @@
+<h3>Person Form</h3>
+<hr>
+<div class="well well-lg">
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="personFistName">First Name</label>
+      <input type="text" class="form-control" id="personFirstName" name="firstName" [ngModel]="person.firstName" required #firstName="ngModel">
+      <div class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched">
+        First Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="personLastName">Last Name</label>
+      <input type="text" class="form-control" id="personLastName" name="LastName" [ngModel]="person.lastName"
+        required #lastName="ngModel">
+      <div class="alert alert-danger" *ngIf="lastName.invalid && lastName.touched">
+        Last Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="personEmail">Email</label>
+      <input type="text" class="form-control" id="personEmail" name="email" [ngModel]="person.Email" required #email="ngModel">
+      <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+        Email is required.
+      </div>
+    </div>
+    
+    <button id="save" name="save" type="submit" [disabled]="f.invalid" class="btn btn-primary">
+      <span class="glyphicon glyphicon-ok"></span>
+    </button>
+    <a class="btn btn-warning" routerLink="/persons">
+      <span class="glyphicon glyphicon-remove"></span>
+    </a>
+  </form>
+</div>
